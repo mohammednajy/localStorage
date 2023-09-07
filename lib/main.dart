@@ -296,11 +296,15 @@ class DbController {
       version: 1,
       onOpen: (Database db) {},
       onCreate: (Database db, int version) async {
-        await db.execute('CREATE TABLE notes ('
-        'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-        'title TEXT,'
-        'details TEXT,'
-        ')');
+        await db.execute(
+      '''
+create table notes ( 
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+ title TEXT,
+  details TEXT,)
+'''
+          
+       );
       },
       onUpgrade: (Database db, int oldVersion, int newVersion) {},
       onDowngrade: (Database db, int oldVersion, int newVersion) {},
